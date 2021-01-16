@@ -6,7 +6,7 @@
 #    By: selchoi <selchoi@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 16:14:48 by selchoi           #+#    #+#              #
-#    Updated: 2021/01/12 00:39:40 by selchoi          ###   ########.fr        #
+#    Updated: 2021/01/14 00:35:18 by selchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,12 @@ ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c\
 ft_strnstr.c ft_tolower.c ft_toupper.c ft_strrchr.c ft_split.c\
 ft_strtrim.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c\
 ft_putendl_fd.c ft_putnbr_fd.c ft_substr.c ft_strjoin.c\
-ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
-ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
+SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJS = ${SRCS:.c=.o}
+OBJS_B = ${SRCS_B:.c=.o}
 
 .c.o:
 	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
@@ -36,8 +38,11 @@ ${NAME} : ${OBJS}
 
 all : ${NAME}
 
+bonus : ${OBJS} ${OBJS_B}
+	ar rcs ${NAME} ${OBJS} ${OBJS_B}
+
 clean :
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_B}
 
 fclean : clean
 	${RM} ${NAME}

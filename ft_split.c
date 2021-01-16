@@ -6,7 +6,7 @@
 /*   By: selchoi <selchoi@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 23:04:31 by selchoi           #+#    #+#             */
-/*   Updated: 2021/01/09 16:54:37 by selchoi          ###   ########.fr       */
+/*   Updated: 2021/01/15 21:08:40 by selchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ char			*set(char *ret, char *start, size_t size)
 	return (ret);
 }
 
+static char		**memfree(char **ret)
+{
+	size_t	i;
+
+	i = 0;
+	while (ret[i])
+	{
+		free(ret[i]);
+		i++;
+	}
+	free(ret);
+	return ((char **)NULL);
+}
+
 char			**ft_split(char const *str, char c)
 {
 	char			**ret;
@@ -58,7 +72,8 @@ char			**ft_split(char const *str, char c)
 		start = (char *)str;
 		while (*str && *str != c)
 			++str;
-		ret[i] = set(ret[i], start, str - start + 1);
+		if (!(ret[i] = set(ret[i], start, str - start + 1)))
+			return (memfree(ret));
 		++i;
 	}
 	ret[i] = (char *)0;
