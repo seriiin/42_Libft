@@ -11,5 +11,5 @@ C programming can be very tedious when one doesn’t have access to those highly
 Through this project, we also give you the opportunity to expand the list of functions with your own. Take the time to expand your libft throughout the year.
 
 
-
+![unit-test.png](/Users/selin/Desktop/unit-test.png)
 > 🙋🏻‍♀️ : 평소 자연스럽게 가져다 썼던 함수들을 직접 구현함으로써 함수의 동작원리와 사용법을 배울 수 있었다. 또한, 메모리를 할당하고 해제시키는 과정들을 거치면서 불필요한 메모리가 낭비되지 않도록 코드를 작성하는 것이 중요하다는 것을 느꼈다. 아무리 작은 크기의 메모리 누수라도 시간이 누적되면 메모리 누수는 심각해지기 때문에, 이런 실수를 하지 않도록 노력해야겠다.
